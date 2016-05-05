@@ -13,6 +13,8 @@ class FileLocation(val url: String, val path: String)
 
 class MNISTLoader extends NetworkTypes {
 
+  val mnistDir = "./mnist/"
+
   val MNIST = Map(
     "train.images" -> new FileLocation("http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz", mnistDir + "trainImages.mnist"),
     "train.labels" -> new FileLocation("http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz", mnistDir + "trainLabels.mnist"),
@@ -20,7 +22,6 @@ class MNISTLoader extends NetworkTypes {
     "test.labels" -> new FileLocation("http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz", mnistDir + "testLabels.mnist")
   )
 
-  val mnistDir = "./mnist/"
   val dir = new File(mnistDir)
 
   if (!dir.exists()) {
